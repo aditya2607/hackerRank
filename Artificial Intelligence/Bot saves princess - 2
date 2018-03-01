@@ -1,0 +1,55 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void displayPathtoPrincess(int n, vector <string> grid,int meX,int meY){
+    //your logic here
+    int pX,pY,step=0;
+    for(int i=0; i<n; i++) {
+        for(int j=0;j<n;j++){
+            if(grid[i][j]=='p'){
+                pX=i;
+                pY=j;
+            }
+        }
+        
+    }
+   // cout<<meX<<endl<<meY<<endl<<pX<<endl<<pY;
+   
+    if(meX<pX){
+    cout<<"DOWN"<<endl;
+    step++;
+    }
+    else if(meX>pX){
+    cout<<"UP"<<endl;
+    step++;
+    }
+   
+    
+    if(step==0){
+        if(meY>pY){
+        cout<<"LEFT"<<endl;
+        step++;
+        }
+        else if(meY<pY){
+        cout<<"RIGHT"<<endl;
+        step++;
+        }
+    }
+}
+int main(void) {
+
+    int m,meX,meY;
+    vector <string> grid;
+
+    cin >> m>>meX>>meY;
+
+    for(int i=0; i<m; i++) {
+        string s; cin >> s;
+        grid.push_back(s);
+    }
+
+    displayPathtoPrincess(m,grid,meX,meY);
+
+    return 0;
+}
